@@ -1,0 +1,232 @@
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+  background: url("bg.jpg") no-repeat center center/cover; /* ganti dengan nama gambarmu */
+  color: #f8fafc;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+/* Lapisan gelap full di atas gambar */
+body::before {
+  content: "";
+  position: fixed; /* fixed agar menempel di layar penuh, bukan cuma di body */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6); /* ubah 0.6 -> 0.4 lebih terang, 0.8 lebih gelap */
+  z-index: 0; /* di bawah konten, tapi di atas gambar */
+}
+
+/* Pastikan semua konten tampil di atas overlay */
+.container,
+.sidebar {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+/* Navbar (sidebar bagian atas) */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #ec9e0d, #eea810);
+  display: flex;
+  justify-content: center; /*Ubah posisi ke tengah */
+  align-items: center;
+  padding: 1rem 3rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  z-index: 100;
+  list-style: none;
+}
+
+/* Link di navbar */
+.sidebar li {
+  display: inline-block;
+  margin: 0 1.5rem;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.sidebar a:hover {
+  color: #facc15;
+  text-shadow: 0 0 10px rgba(250, 204, 21, 0.8);
+}
+
+/* Kontainer utama */
+.container {
+  text-align: center;
+  margin-top: 120px;
+  padding: 2rem;
+}
+
+.container h1 {
+  font-size: 2.2rem;
+  color: #f38b14;
+  margin-bottom: 1rem;
+}
+
+.container p {
+  font-size: 1.1rem;
+  color: #facc15;
+  text-shadow: 0 0 10px rgba(243, 135, 35, 0.8);
+}
+
+/* Efek animasi halus */
+.sidebar,
+.container h1,
+.container p {
+  transition: all 0.5s ease-in-out;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .sidebar {
+    flex-direction: column;
+    padding: 1rem 2rem;
+  }
+
+  .sidebar li {
+    margin: 0.5rem 0;
+  }
+
+  .container {
+    margin-top: 180px;
+  }
+}
+
+marquee {
+  display: block;
+  width: 100%;
+  background: linear-gradient(90deg, #38393a, #38393a);
+  color: #facc15;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 12px 0;
+  border-top: 2px solid #fbbf24;
+  border-bottom: 2px solid #fbbf24;
+  text-shadow: 0 0 10px rgba(251,191,36,0.8);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* ===================== */
+/* Bagian Alamat dan Kontak (tanpa kotak gelap) */
+/* ===================== */
+
+.alamat {
+  text-align: center;
+  background: transparent; /* Hilangkan kotak */
+  color: #facc15;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 10px 0;
+  margin-top: 8px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* agar tetap terbaca */
+}
+
+.contact {
+  text-align: center;
+  background: transparent; /* Tidak ada latar */
+  padding: 25px 0;
+  color: #f8fafc;
+  margin-top: 20px;
+}
+
+.contact h2 {
+  color: #fbbf24;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.contact p {
+  font-size: 1rem;
+  margin: 5px 0;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+}
+
+.contact a {
+  color: #ffe88c;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.contact a:hover {
+  color: #fff;
+  text-shadow: 0 0 12px #facc15;
+}
+
+/* ===================== */
+/* Footer (transparan dan menyatu) */
+/* ===================== */
+footer {
+  background-color: #f39e00;
+  text-align: center;
+  color: #1e1e1e; /* Ganti warna teks agar kontras dan terbaca */
+  padding: 20px 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  text-shadow: none; /* opsional, bisa dihapus atau sesuaikan */
+}
+
+
+.alamat,
+.contact,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+.welcome-box {
+  background: rgba(128, 128, 128, 0.4); /* hitam transparan */
+  padding: 20px 30px;
+  border-radius: 12px;
+  display: inline-block;
+  margin: 0 auto;
+  box-shadow: 0 0 15px rgba(192, 192, 192, 0.6);
+}
+
+.welcome-box {
+  background: rgba(112, 112, 112, 0.85); /* putih semi-transparan */
+  color: #4e4e4e; /* warna teks gelap agar kontras */
+  padding: 40px 50px; /* ukuran lebih besar */
+  border-radius: 16px;
+  max-width: 800px;
+  width: 90%;
+  margin: 0 auto;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  font-size: 1.3rem; /* teks lebih besar */
+  line-height: 1.6;
+  z-index: 2;
+  position: relative;
+  overflow-y: auto; /* biar bisa discroll jika kontennya panjang */
+}
+
+/* Tambahan agar kontennya bisa discroll dengan nyaman */
+body {
+  overflow: auto; /* ini harus diubah dari 'hidden' ke 'auto' */
+}
+
+
